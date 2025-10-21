@@ -3,30 +3,20 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": "./",
+    "noImplicitAny": false,
     "paths": {
-      "@assets/*" : [
-        "./src/assets/*"
-      ],
-      "@components/*" : [
-        "./src/components/*"
-      ],
-      "@routes/*" : [
-        "./src/routes/*"
-      ],
-      "@screens/*" : [
-        "./src/screens/*"
-      ],
-      "@storage/*" : [
-        "./src/storage/*"
-      ],
-      "@theme/*" : [
-        "./src/theme/*"
-      ],
-      "@utils/*" : [
-        "./src/utils/*"
-      ]
-
-
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@routes/*": ["./src/routes/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@storage/*": ["./src/storage/*"],
+      "@theme/*": ["./src/theme/*"],
+      "@utils/*": ["./src/utils/*"]
     }
-  }
+  },
+  "include": [
+    "src",
+    "src/@types" ,
+    "App"  // ✅ adiciona a pasta de tipagens personalizadas
+  ]
 }
