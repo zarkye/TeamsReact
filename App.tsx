@@ -1,8 +1,9 @@
 import { StatusBar } from 'react-native';
 
-//import { Teams } from '@screens/Teams';
+import { Teams } from './src/screens/Teams';
 import { NewTeam } from './src/screens/NewTeam';
-import {AddMember} from './src/screens/AddMembers'
+import { AddMembers } from './src/screens/AddMembers';
+
 import { ThemeProvider } from 'styled-components/native';
 
 import theme from './src/theme/index';
@@ -21,7 +22,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent 
       />
-      { fontsLoaded ? <AddMember/> : <Loading /> }
+      { fontsLoaded ? <AddMembers /> : <Loading /> }
     </ThemeProvider>
   );
 }

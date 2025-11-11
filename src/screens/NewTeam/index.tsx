@@ -1,9 +1,9 @@
 import { Header } from '@components/Header';
 import { Highlight } from '@components/Highlight';
+import { Input } from '@components/Input';
 import { Button } from '@components/Button';
 
 import { Container, HeaderContainer, Content } from './styles';
-import { Input } from '@components/input';
 
 export function NewTeam() {
   return (
@@ -19,8 +19,9 @@ export function NewTeam() {
 
       <Content>
         <Input
-            placeholder='Nome da equipe'
+          placeholder='Nome da equipe'
         />
+
         <Button
           title='Criar equipe'
         />

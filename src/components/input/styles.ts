@@ -1,21 +1,17 @@
-import { css } from "styled-components";
-import styled from "styled-components/native"
+import { TextInput } from "react-native";
+import styled from "styled-components/native";
 
-export const Container = styled.TextInput`
-    display: flex;
-    width: 100%;
-    padding: 16px;
-    align-items: center;
-    gap: 8px;   
-    border-radius: 8px;
-    border: 1px;
-    margin-bottom: 5px;
-    ${({ theme }) => css`
-        font-size: ${theme.FONT_SIZE.MD}px;
-        font-family: ${theme.FONT_FAMILY.REGULAR};
-        color: ${theme.COLORS.GRAY_100};
-        background-color: ${theme.COLORS.WHITE};
-        border-color: ${theme.COLORS.GRAY_300};
-    
-  `};
+export const Container = styled(TextInput)`
+  flex: 1;
+  min-height: 54px;
+  max-height: 54px;
+  color: ${({ theme }) => theme.COLORS.GRAY_500};
+  background-color: ${({ theme }) => theme.COLORS.GRAY_100};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
+  border-radius: 8px;
+  border-right-width: 0;
+  border-width: 1px;
+  border-color: ${({ theme }) => theme.COLORS.GRAY_300};;
+  padding: 16px;
 `;
