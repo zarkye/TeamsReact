@@ -54,11 +54,12 @@ export function AddMembers() {
           />
         </Tabs>
 
-        <Button
+      </Content>
+      <Button
           title='Deletar equipe'
           type='SECONDARY'
+          
         />
-      </Content>
     </Container>
   );
 }
