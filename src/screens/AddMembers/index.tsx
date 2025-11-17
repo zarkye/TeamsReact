@@ -1,24 +1,28 @@
+import { useState } from 'react';
+import { FlatList } from 'react-native';
+
 import { Header } from '@components/Header';
 import { Highlight } from '@components/Highlight';
 import { Input } from '@components/Input';
 import { ButtonIcon } from '@components/ButtonIcon';
 import { Tab } from '@components/Tab';
+import { Tag } from '@components/Tag';
+import { MemberCard } from '@components/MemberCard';
 import { Button } from '@components/Button';
 
 import { Container, HeaderContainer, Content, InputContainer, Tabs } from './styles';
-import { FlatList } from 'react-native';
-import { useState } from 'react';
-import { Tag } from '@components/Tag';
+import { ListEmpty } from '@components/ListEmpty';
 
 export function AddMembers() {
-  const [tab, setTab] = useState("Titular")
+  const [tab, setTab] = useState('Titular');
+  const [members, setMember] = useState(["Joao da silva", "Gilberto"]);
   return (
     <Container>
       <HeaderContainer>
         <Header showBackButton />
 
         <Highlight
-          title='Equipe 1'
+          title='Equipes 1'
           subtitle='Adicione os titulares e reservas'
         />
       </HeaderContainer>
@@ -30,17 +34,17 @@ export function AddMembers() {
             placeholder='Adicione um membro'
           />
 
-          <ButtonIcon 
-           style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }}
-            icon='add-circle-outline' 
+          <ButtonIcon
+            borderRadius='RIGHT'
+            icon='add-circle-outline'
           />
         </InputContainer>
 
         <Tabs>
           <FlatList
-            data={["Titular", "Reserva"]}
-            keyExtractor={(item) => item}
-            renderItem={({item}) => (
+            data={['Titular', 'Reserva']}
+            keyExtractor={item => item}
+            renderItem={({ item }) => (
               <Tab
                 title={item}
                 isActive={item === tab}
@@ -49,17 +53,29 @@ export function AddMembers() {
             )}
             horizontal
           />
-          <Tag
-            text={4}
-          />
-        </Tabs>
 
-      </Content>
-      <Button
+          <Tag text={0} />
+        </Tabs>
+        <FlatList
+          data={members}
+          keyExtractor={item => item}
+          renderItem={({item}) => (
+            <MemberCard
+              name={item} onRemove={() => console.log("teste")}
+            />
+          )}
+          ListEmptyComponent={() => (
+            <ListEmpty message='Não há membros adicionados'/>
+          )}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={[{paddingBottom: 0}, members.length === 0 && {flex: 1}]}
+        />
+
+        <Button
           title='Deletar equipe'
           type='SECONDARY'
-          
         />
+      </Content>
     </Container>
   );
 }
