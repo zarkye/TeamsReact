@@ -1,20 +1,19 @@
 import { View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import styled from "styled-components/native"
 
 export const Container = styled.View`
     flex: 1;
     background-color: #fff;
-
-    color: ${({theme}) => theme.COLORS.GRAY_100};
 `;
 
-export const HeaderCotainer = styled.View`
+export const HeaderContainer = styled.View`
     background-color: ${({ theme }) => theme.COLORS.PURPLE_500};
-    padding-top: 54px;
-    padding-bottom: 24px;
+    padding: 24px 0;
 `;
 
 export const Content = styled(View)`
-    padding: 24px;
     flex: 1;
+    padding: 24px 24px 0 24px;
+    
 `;

@@ -1,0 +1,1 @@
+export const TEAM_COLLECTION = '@cesul-teams:teams';

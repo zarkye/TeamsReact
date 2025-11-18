@@ -12,17 +12,24 @@ import { Button } from '@components/Button';
 
 import { Container, HeaderContainer, Content, InputContainer, Tabs } from './styles';
 import { ListEmpty } from '@components/ListEmpty';
+import { useRoute } from '@react-navigation/native';
+
+type RouteParams = {
+  team: string;
+}
 
 export function AddMembers() {
+  const route = useRoute();
+  const {team} = route.params as RouteParams;
   const [tab, setTab] = useState('Titular');
-  const [members, setMember] = useState(["Joao da silva", "Gilberto"]);
+  const [members, setMember] = useState([]);
   return (
     <Container>
       <HeaderContainer>
         <Header showBackButton />
 
         <Highlight
-          title='Equipes 1'
+          title={team}
           subtitle='Adicione os titulares e reservas'
         />
       </HeaderContainer>
@@ -70,7 +77,6 @@ export function AddMembers() {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={[{paddingBottom: 0}, members.length === 0 && {flex: 1}]}
         />
-
         <Button
           title='Deletar equipe'
           type='SECONDARY'

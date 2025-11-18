@@ -1,12 +1,10 @@
 import { StatusBar } from 'react-native';
 
-import { Teams } from './src/screens/Teams';
-import { NewTeam } from './src/screens/NewTeam';
-import { AddMembers } from './src/screens/AddMembers';
+import { Routes } from './src/routes';
 
 import { ThemeProvider } from 'styled-components/native';
 
-import theme from './src/theme/index';
+import theme from './src/theme';
 
 import { Roboto_400Regular, Roboto_700Bold, useFonts } from '@expo-google-fonts/roboto';
 
@@ -22,7 +20,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent 
       />
-      { fontsLoaded ? <AddMembers /> : <Loading /> }
+      { fontsLoaded ? <Routes /> : <Loading /> }
     </ThemeProvider>
   );
 }
